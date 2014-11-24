@@ -50,23 +50,23 @@ The following files are available for the train and test data. Their description
 
 ##Steps 
 
-1. Create variables and load data
+1. Create variables and load data <br>
 `activity_labels <- read.table('dataset/activity_labels.txt')` <br>
 `features <- read.table('dataset/features.txt')`<br>
 `train_labels <- read.table('dataset/train/y_train.txt')` <br>
 `test_labels <- read.table('dataset/test/y_test.txt')` <br>
 `train_set <- read.table('dataset/train/X_train.txt')` <br>
 `test_set <- read.table('dataset/test/X_test.txt')` <br>
-2. Merge the training and test datasets without excluding observations
+2. Merge the training and test datasets without excluding observations <br>
 `mergedata<- merge(train_set, test_set,all=TRUE)`
-3. Add  names and descriptions to data saet
+3. Add  names and descriptions to data set <br>
 `list_activities <- as.character(features$V2)`<br>
 `headers <- c("Activity_ID",list_activities)`<br>
 `names(mergedata) <- headers`<br>
 `features$V2 <- as.character(features$V2)`<br>
-4. Identify which ones are mean or STD
+4. Identify which ones are mean or STD <br>
 `meanSTD <- grepl("mean|std", features$V2)`
-5. Create tidy data set with mean
+5. Create tidy data set with mean<br>
 `dataMeanStd = mergedata[,meanSTD]`
 
 

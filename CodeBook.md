@@ -58,8 +58,9 @@ The following files are available for the train and test data. Their description
 1. 
 
 2. Create variables and load data
-```activity_labels <- read.table('dataset/activity_labels.txt')
-features <- read.table('dataset/features.txt')'
+
+`activity_labels <- read.table('dataset/activity_labels.txt')`
+`features <- read.table('dataset/features.txt')`
 train_labels <- read.table('dataset/train/y_train.txt')
 test_labels <- read.table('dataset/test/y_test.txt')
 train_set <- read.table('dataset/train/X_train.txt')

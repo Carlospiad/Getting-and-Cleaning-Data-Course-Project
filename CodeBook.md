@@ -31,17 +31,11 @@ For this project the following R packages were used:
 ##Data Description
 
 - 'features_info.txt': Shows information about the variables used on the feature vector.
-
 - 'features.txt': List of all features.
-
 - 'activity_labels.txt': Links the class labels with their activity name.
-
 - 'train/X_train.txt': Training set.
-
 - 'train/y_train.txt': Training labels.
-
 - 'test/X_test.txt': Test set.
-
 - 'test/y_test.txt': Test labels.
 
 The following files are available for the train and test data. Their descriptions are equivalent. 
@@ -57,34 +51,23 @@ The following files are available for the train and test data. Their description
 ##Steps 
 
 1. Create variables and load data
-
 `activity_labels <- read.table('dataset/activity_labels.txt')` <br>
 `features <- read.table('dataset/features.txt')`<br>
 `train_labels <- read.table('dataset/train/y_train.txt')` <br>
 `test_labels <- read.table('dataset/test/y_test.txt')` <br>
 `train_set <- read.table('dataset/train/X_train.txt')` <br>
 `test_set <- read.table('dataset/test/X_test.txt')` <br>
-
 2. Merge the training and test datasets without excluding observations
-
 `mergedata<- merge(train_set, test_set,all=TRUE)`
-
-3. Add  names and descriptionsto data saet
+3. Add  names and descriptions to data saet
 `list_activities <- as.character(features$V2)`<br>
 `headers <- c("Activity_ID",list_activities)`<br>
-`names(mergedata) <- headers`
-
-4.
-
-
-#transform to character the second column of the feature list
-features$V2 <- as.character(features$V2) 
-
-#Identify which ones are mean or STD
-meanSTD <- grepl("mean|std", features$V2)
-
-#extract the data with the mean or STD
-dataMeanStd = mergedata[,meanSTD]
+`names(mergedata) <- headers`<br>
+`features$V2 <- as.character(features$V2)`<br>
+4. Identify which ones are mean or STD
+`meanSTD <- grepl("mean|std", features$V2)`
+5. Create tidy data set with mean
+`dataMeanStd = mergedata[,meanSTD]`
 
 
 

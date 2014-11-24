@@ -62,8 +62,9 @@ The following files are available for the train and test data. Their description
 `features$V2 <- as.character(features$V2)`<br>
 4. Identify which ones are mean or STD <br>
 `meanSTD <- grepl("mean|std", features$V2)`
-5. Create tidy data set with mean<br>
 `dataMeanStd = mergedata[,meanSTD]`
+5. Create tidy data set with mean<br>
+
 
 
 

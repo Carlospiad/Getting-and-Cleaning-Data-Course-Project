@@ -55,33 +55,26 @@ The following files are available for the train and test data. Their description
 - 'train/Inertial Signals/body_gyro_x_train.txt': The angular velocity vector measured by the gyroscope for each window sample. The units are radians/second. 
 
 ##Steps 
-1. 
 
-2. Create variables and load data
+1. Create variables and load data
 
 `activity_labels <- read.table('dataset/activity_labels.txt')` <br>
 `features <- read.table('dataset/features.txt')`<br>
-`train_labels <- read.table('dataset/train/y_train.txt')`
-`test_labels <- read.table('dataset/test/y_test.txt')`
-`train_set <- read.table('dataset/train/X_train.txt')`
-`test_set <- read.table('dataset/test/X_test.txt')`
+`train_labels <- read.table('dataset/train/y_train.txt')` <br>
+`test_labels <- read.table('dataset/test/y_test.txt')` <br>
+`train_set <- read.table('dataset/train/X_train.txt')` <br>
+`test_set <- read.table('dataset/test/X_test.txt')` <br>
 
 2. Merge the training and test datasets without excluding observations
 
+`mergedata<- merge(train_set, test_set,all=TRUE)`
 
-## Install data.table package first
+3. Add  names and descriptionsto data saet
+`list_activities <- as.character(features$V2)`<br>
+`headers <- c("Activity_ID",list_activities)`<br>
+`names(mergedata) <- headers`
 
-
-
-
-
-#Merge the training and test set
-mergedata<- merge(train_set, test_set,all=TRUE)
-
-#Create and add list of activities
-list_activities <- as.character(features$V2)
-headers <- c("Activity_ID",list_activities)
-names(mergedata) <- headers
+4.
 
 
 #transform to character the second column of the feature list

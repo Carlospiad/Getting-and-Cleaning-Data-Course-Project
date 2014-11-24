@@ -63,5 +63,9 @@ The following files are available for the train and test data. Their description
 'train_set <- read.table('dataset/train/X_train.txt')'
 'test_set <- read.table('dataset/test/X_test.txt')'
 
+2. Merge the training and test datasets without excluding observations
+'mergedata<- merge(train_set, test_set, all=TRUE)'
+
+
 
  
